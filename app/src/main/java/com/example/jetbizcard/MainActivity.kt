@@ -1,6 +1,10 @@
 package com.example.jetbizcard
 
+import android.content.Context
+import android.media.tv.interactive.AppLinkInfo
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
@@ -17,11 +21,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Divider
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -75,9 +75,35 @@ fun CreateBizCard() {
             ) {
                 CreateImageProfile()
                 Divider(modifier = Modifier.padding(8.dp))
+                CreateInfo()
+                Button(onClick = {
+                }) {
+                    Text(text = "Portfolio",
+                    style = MaterialTheme.typography.labelMedium)
+                }
             }
 
         }
+    }
+}
+
+@Composable
+private fun CreateInfo() {
+    Column(modifier = Modifier.padding(5.dp)) {
+        Text(
+            text = "Miles P.",
+            style = MaterialTheme.typography.headlineMedium,
+            color = MaterialTheme.colorScheme.primary
+        )
+        Text(
+            text = "Android Compose Programmer",
+            modifier = Modifier.padding(3.dp)
+        )
+        Text(
+            text = "@themilesCompose",
+            modifier = Modifier.padding(3.dp),
+            style = MaterialTheme.typography.titleSmall
+        )
     }
 }
 
